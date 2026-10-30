@@ -1,0 +1,8 @@
+// Focus ring / border colors dynamically updated by wallcolors.py
+layout {
+    focus-ring {
+        active-color "#e0563b"
+        inactive-color "#313a4d"
+    }
+}
+

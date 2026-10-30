@@ -1,0 +1,62 @@
+// Window rules for niri (Ajodi)
+// Ported from Ricelin Hyprland window rules.
+
+// Enable rounded corners for all windows
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Dialogs & settings windows open as floating
+window-rule {
+    match app-id=r#"pavucontrol|nm-connection-editor|blueman-manager|polkit-kde-authentication-agent-1|xdg-desktop-portal-gtk"#
+    open-floating true
+}
+
+// File pickers open as floating
+window-rule {
+    match title=r#"Open File|Save File|Save As|Choose Files|Open Folder"#
+    open-floating true
+}
+
+// Ajodi Settings window
+window-rule {
+    match app-id="org.quickshell" title=r#"Ajodi Settings|Ricelin Settings"#
+    open-floating true
+}
+
+// Dolphin file manager
+window-rule {
+    match app-id="org.kde.dolphin"
+    open-floating true
+}
+
+// Floating utilities
+window-rule {
+    match app-id="Ghosttype-app"
+    open-floating true
+    open-on-workspace "stash"
+}
+
+window-rule {
+    match app-id=r#"[Ss]potify"#
+    open-floating true
+    open-on-workspace "stash"
+}
+
+window-rule {
+    match app-id="io.github.Qalculate.qalculate-qt"
+    open-floating true
+}
+
+window-rule {
+    match app-id="App" title="VibeLark"
+    open-floating true
+}
+
+// Auto-routing spaces
+window-rule {
+    match app-id=r#"discord|vesktop"#
+    open-on-workspace "discord"
+}
+

@@ -1,0 +1,102 @@
+// Keybindings for niri (Ajodi)
+// Ported from Ricelin Hyprland binds.
+
+binds {
+    // Hotkey overlay
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Window management
+    Mod+W        { close-window; }
+    Ctrl+Shift+W { close-window; }
+    Mod+Return   { spawn "ghostty"; }
+    Mod+F        { maximize-column; }
+    Mod+Shift+F  { fullscreen-window; }
+    Mod+E        { spawn "dolphin"; }
+    Mod+T        { toggle-window-floating; }
+
+    // Column & Window focus navigation
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    // Column & Window movement
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down; }
+
+    // Column sizing & column manipulation
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+    Mod+R      { switch-preset-column-width; }
+
+    // Workspaces 1-10
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Special workspace emulation (stash, private, minimized)
+    Mod+S       { focus-workspace "stash"; }
+    Mod+Shift+S { move-column-to-workspace "stash"; }
+
+    Mod+P       { focus-workspace "private"; }
+    Mod+Shift+P { move-column-to-workspace "private"; }
+
+    Mod+M       { move-column-to-workspace "minimized"; }
+    Mod+Shift+M { focus-workspace "minimized"; }
+
+    // User spaces emulation (Discord / Vesktop)
+    Mod+A       { focus-workspace "discord"; }
+    Mod+Shift+A { move-column-to-workspace "discord"; }
+
+    // Mouse wheel workspace navigation
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
+    // Color picker
+    Mod+Shift+C { spawn "hyprpicker" "-a"; }
+
+    // Ajodi Shell / Surfaces
+    Mod+Space { spawn-sh "~/.config/niri/scripts/open-surface.sh launcher"; }
+    Mod+V     { spawn-sh "~/.config/niri/scripts/open-surface.sh clipboard"; }
+    Mod+I     { spawn-sh "~/.config/niri/scripts/open-surface.sh settings"; }
+    Mod+L     { spawn-sh "~/.config/niri/scripts/lock.sh"; }
+    Mod+B     { spawn-sh "~/.config/niri/scripts/wallpaper.sh"; }
+    Mod+C     { spawn-sh "~/.config/niri/scripts/open-surface.sh wallpaper"; }
+    Mod+D     { spawn-sh "~/.config/niri/scripts/record.sh"; }
+    Mod+G     { spawn-sh "~/.config/niri/scripts/open-surface.sh gameMode"; }
+
+    // Media & Volume controls
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.config/niri/scripts/volume.sh"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+
+    // Screenshots
+    Print       { screenshot; }
+    Shift+Print { screenshot-screen; }
+}
+

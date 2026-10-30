@@ -1,0 +1,10 @@
+// Output configuration for niri (Ajodi)
+// Generated and managed by Ajodi.
+// Run `niri msg outputs` to find your display names.
+
+output "eDP-1" {
+    scale 1.0
+    transform "normal"
+    position x=0 y=0
+}
+
