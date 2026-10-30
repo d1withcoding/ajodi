@@ -6,12 +6,12 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Window management
-    Mod+W        { close-window; }
+    Mod+X        { close-window; }
     Ctrl+Shift+W { close-window; }
     Mod+Return   { spawn "ghostty"; }
     Mod+F        { maximize-column; }
     Mod+Shift+F  { fullscreen-window; }
-    Mod+E        { spawn "dolphin"; }
+    Mod+E        { spawn "nautilus"; }
     Mod+T        { toggle-window-floating; }
 
     // Column & Window focus navigation

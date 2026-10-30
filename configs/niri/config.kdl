@@ -16,7 +16,7 @@ cursor {
 input {
     keyboard {
         xkb {
-            layout "de"
+            layout "gb"
         }
         repeat-delay 400
         repeat-rate 40
