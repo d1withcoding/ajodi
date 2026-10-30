@@ -2,7 +2,6 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "Singletons"
 
 /**
  * Coding agent sessions that wait for user or just finished, written by niri/scripts/agent-state.sh.

@@ -3,7 +3,6 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "Singletons"
 
 /**
  * Live audio spectrum from a headless cava, spawned only when the binary exists because the updater never installs packages.

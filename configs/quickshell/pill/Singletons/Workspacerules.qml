@@ -1,7 +1,6 @@
 pragma Singleton
 import QtQuick
 import Quickshell
-import "Singletons"
 
 /**
  * Workspace to monitor map (stubbed for niri).
