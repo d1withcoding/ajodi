@@ -25,6 +25,12 @@ window-rule {
     open-floating true
 }
 
+//Overview Background using awww
+layer-rule{
+    match namespace="awww-daemon"
+    place-within-backdrop true
+}
+
 // Dolphin file manager
 window-rule {
     match app-id="org.kde.dolphin"

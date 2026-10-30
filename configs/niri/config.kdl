@@ -1,6 +1,10 @@
 // Ajodi niri Configuration
 // Ported from Ricelin (Hyprland)
 
+overview{
+    backdrop-color "transparent"
+}
+
 environment {
     XCURSOR_THEME "Bibata-Modern-Ice"
     XCURSOR_SIZE "24"
