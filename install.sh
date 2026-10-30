@@ -11,7 +11,7 @@
 
 set -e
 
-REPO_URL="https://github.com/Gakuseei/Ajodi.git"
+REPO_URL="https://github.com/d1withcoding/ajodi.git"
 DIR="${XDG_DATA_HOME:-$HOME/.local/share}/ajodi"
 
 # os-release ID / ID_LIKE tokens per family, mirroring installer/distro.py so the
