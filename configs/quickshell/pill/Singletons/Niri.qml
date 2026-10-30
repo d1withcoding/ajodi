@@ -70,12 +70,36 @@ Singleton {
                         }
                     }
                     root.outputs = list;
-                    for (var i = 0; i < list.length; i++) {
-                        if (list[i].logical && list[i].logical.is_focused) {
-                            root.focusedOutput = list[i];
-                            root.focusedOutputName = list[i].name;
-                            break;
+                    // Kick off a focused-output query to learn which one has focus.
+                    if (!queryFocused.running)
+                        queryFocused.running = true;
+                } catch (e) {}
+            }
+        }
+    }
+
+    // Dedicated query for the focused output (niri msg -j outputs
+    // does not carry an is_focused flag).
+    Process {
+        id: queryFocused
+        command: ["niri", "msg", "-j", "focused-output"]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                try {
+                    var fo = JSON.parse(this.text);
+                    var name = fo.name || "";
+                    if (name.length > 0) {
+                        for (var i = 0; i < root.outputs.length; i++) {
+                            if (root.outputs[i].name === name) {
+                                root.focusedOutput = root.outputs[i];
+                                root.focusedOutputName = name;
+                                return;
+                            }
                         }
+                        // Output list may not have been parsed yet;
+                        // store the object directly.
+                        root.focusedOutput = fo;
+                        root.focusedOutputName = name;
                     }
                 } catch (e) {}
             }
