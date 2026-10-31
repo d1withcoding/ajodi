@@ -62,7 +62,7 @@ curl -fsSL https://raw.githubusercontent.com/Gakuseei/Ajodi/main/install.sh | ba
 --dry-run     walk the whole flow and change nothing
 ```
 
-Once installed, launch `niri` from your display manager or a TTY.
+Once installed, launch `niri-session` from your display manager or a TTY.
 
 ## Keybinds
 
@@ -73,7 +73,7 @@ Once installed, launch `niri` from your display manager or a TTY.
 | `Super` + `V` | Clipboard history |
 | `Super` + `C` | Wallpaper picker |
 | `Super` + `B` | Shuffle wallpaper and retheme |
-| `Super` + `E` | Dolphin file manager |
+| `Super` + `E` | Nautilus file manager |
 | `Super` + `W` | Close window |
 | `Super` + `F` | Maximize column |
 | `Super` + `Shift` + `F` | Fullscreen window |
@@ -93,9 +93,7 @@ Once installed, launch `niri` from your display manager or a TTY.
 
 The installer neutralises hardware-specific bits (display outputs, keyboard layout, and GPU flags) so it boots portably on any machine. Your custom monitor outputs and keybinds in `outputs.kdl` and `binds.kdl` are preserved across rice updates.
 
-## Support
 
-If Ajodi made your setup nicer, you can [buy me a coffee on Ko-fi](https://ko-fi.com/gakuseei).
 
 ## Credits
 

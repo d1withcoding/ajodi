@@ -23,6 +23,7 @@ singleton Peripherals Peripherals.qml
 singleton Sound Sound.qml
 singleton Net Net.qml
 singleton Clock Clock.qml
+singleton Lyrics Lyrics.qml
 singleton Countdown Countdown.qml
 singleton Agents Agents.qml
 singleton Niri Niri.qml

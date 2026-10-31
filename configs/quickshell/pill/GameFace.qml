@@ -62,12 +62,14 @@ Face {
 
     Text {
         anchors.centerIn: parent
-        text: Clock.hhmm
+        text: (Lyrics.active && Lyrics.currentLine.length > 0) ? Lyrics.currentLine : Clock.hhmm
         color: Theme.cream
         font.family: Theme.font
         font.pixelSize: 16 * face.s
         font.weight: Font.DemiBold
         font.features: ({ "tnum": 1 })
+        elide: Text.ElideRight
+        width: Math.min(implicitWidth, 420 * face.s)
     }
 
     /**

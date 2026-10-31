@@ -14,7 +14,7 @@ QtObject {
     readonly property bool hover: row.hover
 
     readonly property var byId: ({
-        glyph: glyph, clock: clock, date: date, clockdate: clockdate, workspaces: workspaces,
+        glyph: glyph, clock: clock, lyrics: lyrics, date: date, clockdate: clockdate, workspaces: workspaces,
         weather: weather, battery: battery, musicbars: musicbars, live: live, minimized: minimized,
         tray: tray, dnd: dnd, wifi: wifi, bt: bt, inbox: inbox, mixer: mixer, sound: sound,
         sysmon: sysmon, recorder: recorder, settings: settings, power: power
@@ -81,13 +81,75 @@ QtObject {
     }
 
     readonly property Component clock: Component {
-        Text {
-            text: Clock.hhmm
-            color: Theme.cream
-            font.family: Theme.font
-            font.pixelSize: (mods.hover ? 18 : 16) * mods.s
-            font.weight: Font.DemiBold
-            font.features: { "tnum": 1 }
+        Item {
+            readonly property bool lyricsActive: Lyrics.active && Lyrics.currentLine.length > 0 && !mods.hover
+
+            implicitWidth: lyricsActive ? lyricRow.implicitWidth : clockText.implicitWidth
+            implicitHeight: Math.max(clockText.implicitHeight, lyricRow.implicitHeight)
+
+            Text {
+                id: clockText
+                anchors.centerIn: parent
+                opacity: parent.lyricsActive ? 0 : 1
+                visible: opacity > 0.01
+                text: Clock.hhmm
+                color: Theme.cream
+                font.family: Theme.font
+                font.pixelSize: (mods.hover ? 18 : 16) * mods.s
+                font.weight: Font.DemiBold
+                font.features: { "tnum": 1 }
+                Behavior on opacity { NumberAnimation { duration: Motion.fast } }
+            }
+
+            Row {
+                id: lyricRow
+                anchors.centerIn: parent
+                spacing: 6 * mods.s
+                opacity: parent.lyricsActive ? 1 : 0
+                visible: opacity > 0.01
+                Behavior on opacity { NumberAnimation { duration: Motion.fast } }
+
+                MusicBars {
+                    anchors.verticalCenter: parent.verticalCenter
+                    s: mods.s * 0.8
+                    span: 12
+                }
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: Lyrics.currentLine
+                    color: Theme.cream
+                    font.family: Theme.font
+                    font.pixelSize: 14 * mods.s
+                    font.weight: Font.Medium
+                    elide: Text.ElideRight
+                    width: Math.min(implicitWidth, 380 * mods.s)
+                }
+            }
+        }
+    }
+
+    readonly property Component lyrics: Component {
+        Row {
+            spacing: 6 * mods.s
+            visible: Lyrics.active && Lyrics.currentLine.length > 0
+
+            MusicBars {
+                anchors.verticalCenter: parent.verticalCenter
+                s: mods.s * 0.8
+                span: 12
+            }
+
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: Lyrics.currentLine
+                color: Theme.cream
+                font.family: Theme.font
+                font.pixelSize: 14 * mods.s
+                font.weight: Font.Medium
+                elide: Text.ElideRight
+                width: Math.min(implicitWidth, 380 * mods.s)
+            }
         }
     }
 
